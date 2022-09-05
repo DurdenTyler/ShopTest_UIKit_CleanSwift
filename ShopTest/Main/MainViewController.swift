@@ -31,6 +31,25 @@ class MainViewController: UIViewController, MainDisplayLogic {
     
     // MARK: Init Objects
     
+    private lazy var scrollView: UIScrollView = {
+        let scroll = UIScrollView(frame: .zero)
+        scroll.frame = view.bounds
+        scroll.contentSize = contentSize
+        scroll.bounces = false
+        scroll.showsVerticalScrollIndicator = false
+        return scroll
+    }()
+    
+    private var contentSize: CGSize {
+        CGSize(width: view.frame.width, height: view.frame.height + 400)
+    }
+    
+    private lazy var contentView: UIView = {
+        let contentView = UIView()
+        contentView.frame.size = contentSize
+        return contentView
+    }()
+    
     private let geoButton = GeoButton()
     
     private let filtersButton: UIButton = {
@@ -58,25 +77,91 @@ class MainViewController: UIViewController, MainDisplayLogic {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("view all", for: .normal)
         button.tintColor = UIColor(named: "specialOrange")
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .medium)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .medium)
         button.addTarget(self, action: #selector(viewAllButtonFunc), for: .touchUpInside)
         return button
     }()
     
-    private let categoryCollection: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.minimumInteritemSpacing = 3
-        layout.scrollDirection = .horizontal
-        ///
-        let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collection.translatesAutoresizingMaskIntoConstraints = false
-        collection.bounces = false
-        collection.showsHorizontalScrollIndicator = false
-        collection.backgroundColor = .none
-        return collection
+    private let categoryCollection = CategoryCollectionView()
+    
+    private let searchTextField: UITextField = {
+        let field = UITextField()
+        field.translatesAutoresizingMaskIntoConstraints = false
+        field.backgroundColor = .white
+        field.placeholder = "Search"
+        field.textColor = .gray
+        field.layer.cornerRadius = 20
+        field.borderStyle = .none
+        field.font = UIFont.systemFont(ofSize: 15, weight: .light)
+        field.clearButtonMode = .always
+        field.returnKeyType = .done
+        
+        let imageView = UIImageView()
+        imageView.image = UIImage(systemName: "magnifyingglass")
+        imageView.tintColor = UIColor(named: "specialOrange")
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        field.addSubview(imageView)
+        imageView.centerXAnchor.constraint(equalTo: field.leadingAnchor, constant: 25).isActive = true
+        imageView.centerYAnchor.constraint(equalTo: field.centerYAnchor).isActive = true
+        
+        field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 55, height: field.frame.height))
+        field.leftViewMode = .always
+        return field
     }()
     
-    private let idCategoryCell = "idCategoryCell"
+    
+    private let qrCodeButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(named: "QRCode"), for: .normal)
+        button.backgroundColor = UIColor(named: "specialOrange")
+        button.tintColor = .white
+        button.addTarget(self, action: #selector(qrCodeButtonFunc), for: .touchUpInside)
+        return button
+    }()
+    
+    private let labelHotSal: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Hot Sales"
+        label.textColor = .black
+        label.font = UIFont.systemFont(ofSize: 27, weight: .semibold)
+        return label
+    }()
+    
+    private let seeMoreButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("see more", for: .normal)
+        button.tintColor = UIColor(named: "specialOrange")
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .medium)
+        button.addTarget(self, action: #selector(seeMoreButtonFunc), for: .touchUpInside)
+        return button
+    }()
+    
+    private let hotSalesCollection = HotSalesCollectionView()
+    
+    private let labelBestSeller: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Best Seller"
+        label.textColor = .black
+        label.font = UIFont.systemFont(ofSize: 27, weight: .semibold)
+        return label
+    }()
+    
+    private let seeMore2Button: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("see more", for: .normal)
+        button.tintColor = UIColor(named: "specialOrange")
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .medium)
+        button.addTarget(self, action: #selector(seeMore2ButtonFunc), for: .touchUpInside)
+        return button
+    }()
+    
+    private let bestSellerCollection = BestSellerCollectionView()
     
     // MARK: Setup
     
@@ -100,17 +185,32 @@ class MainViewController: UIViewController, MainDisplayLogic {
         setupViews()
         setDelegates()
         setContraints()
+        addTaps()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        qrCodeButton.layer.cornerRadius = qrCodeButton.frame.width / 2
     }
     
     private func setupViews() {
         view.backgroundColor = UIColor(named: "backgroundColor")
-        view.addSubview(geoButton)
+        view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        contentView.addSubview(geoButton)
         geoButton.addTarget(self, action: #selector(geoButtonFunc), for: .touchUpInside)
-        view.addSubview(filtersButton)
-        view.addSubview(labelSelCat)
-        view.addSubview(viewAllButton)
-        view.addSubview(categoryCollection)
-        categoryCollection.register(CategoryCollectionCell.self, forCellWithReuseIdentifier: idCategoryCell)
+        contentView.addSubview(filtersButton)
+        contentView.addSubview(labelSelCat)
+        contentView.addSubview(viewAllButton)
+        contentView.addSubview(categoryCollection)
+        contentView.addSubview(searchTextField)
+        contentView.addSubview(qrCodeButton)
+        contentView.addSubview(labelHotSal)
+        contentView.addSubview(seeMoreButton)
+        contentView.addSubview(hotSalesCollection)
+        contentView.addSubview(labelBestSeller)
+        contentView.addSubview(seeMore2Button)
+        contentView.addSubview(bestSellerCollection)
     }
     
     func displayData(viewModel: Main.Model.ViewModel.ViewModelData) {
@@ -118,8 +218,24 @@ class MainViewController: UIViewController, MainDisplayLogic {
     }
     
     private func setDelegates() {
-        categoryCollection.delegate = self
-        categoryCollection.dataSource = self
+        searchTextField.delegate = self
+    }
+    
+    private func addTaps() {
+        let tapScreen = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        view.addGestureRecognizer(tapScreen)
+        
+        let swipeScreen = UISwipeGestureRecognizer(target: self, action: #selector(swipeHideKeyboard))
+        swipeScreen.cancelsTouchesInView = false
+        view.addGestureRecognizer(swipeScreen)
+    }
+    
+    @objc private func hideKeyboard() {
+        view.endEditing(true)
+    }
+    
+    @objc private func swipeHideKeyboard() {
+        view.endEditing(true)
     }
     
     // MARK: Buttons func on this screen
@@ -136,6 +252,18 @@ class MainViewController: UIViewController, MainDisplayLogic {
         print("viewAllButton was tapped")
     }
     
+    @objc private func qrCodeButtonFunc() {
+        print("qrCodeButton was tapped")
+    }
+    
+    @objc private func seeMoreButtonFunc() {
+        print("seeMoreButton was tapped")
+    }
+    
+    @objc private func seeMore2ButtonFunc() {
+        print("seeMore2Button was tapped")
+    }
+    
 }
 
 // MARK: Set Constraints here
@@ -143,56 +271,89 @@ class MainViewController: UIViewController, MainDisplayLogic {
 extension MainViewController {
     private func setContraints() {
         NSLayoutConstraint.activate([
-            geoButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 5),
+            geoButton.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 5),
             geoButton.widthAnchor.constraint(equalToConstant: 130),
-            geoButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor)
+            geoButton.centerXAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.centerXAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            filtersButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 5.5),
-            filtersButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -25),
+            filtersButton.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 5.5),
+            filtersButton.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor, constant: -25),
             filtersButton.heightAnchor.constraint(equalToConstant: 16),
             filtersButton.widthAnchor.constraint(equalToConstant: 13.5)
         ])
         
         NSLayoutConstraint.activate([
             labelSelCat.topAnchor.constraint(equalTo: geoButton.bottomAnchor, constant: 10),
-            labelSelCat.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20)
+            labelSelCat.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 15)
         ])
         
         NSLayoutConstraint.activate([
             viewAllButton.centerYAnchor.constraint(equalTo: labelSelCat.centerYAnchor, constant: 1.5),
-            viewAllButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -25)
+            viewAllButton.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor, constant: -25)
         ])
         
         NSLayoutConstraint.activate([
-            categoryCollection.topAnchor.constraint(equalTo: labelSelCat.bottomAnchor, constant: 10),
-            categoryCollection.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 30),
-            categoryCollection.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            categoryCollection.topAnchor.constraint(equalTo: labelSelCat.bottomAnchor, constant: 15),
+            categoryCollection.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 0),
+            categoryCollection.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             categoryCollection.heightAnchor.constraint(equalToConstant: 115)
+        ])
+        
+        NSLayoutConstraint.activate([
+            searchTextField.topAnchor.constraint(equalTo: categoryCollection.bottomAnchor, constant: 20),
+            searchTextField.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 45),
+            searchTextField.widthAnchor.constraint(equalToConstant: 265),
+            searchTextField.heightAnchor.constraint(equalToConstant: 40)
+        ])
+        
+        NSLayoutConstraint.activate([
+            qrCodeButton.centerYAnchor.constraint(equalTo: searchTextField.centerYAnchor),
+            qrCodeButton.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor, constant:  -25),
+            qrCodeButton.heightAnchor.constraint(equalToConstant: 40),
+            qrCodeButton.widthAnchor.constraint(equalToConstant: 40)
+        ])
+        
+        NSLayoutConstraint.activate([
+            labelHotSal.topAnchor.constraint(equalTo: searchTextField.bottomAnchor, constant: 20),
+            labelHotSal.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 15)
+        ])
+        
+        NSLayoutConstraint.activate([
+            seeMoreButton.centerYAnchor.constraint(equalTo: labelHotSal.centerYAnchor, constant: 1.5),
+            seeMoreButton.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor, constant: -25)
+        ])
+        
+        NSLayoutConstraint.activate([
+            hotSalesCollection.topAnchor.constraint(equalTo: labelHotSal.bottomAnchor, constant: 12),
+            hotSalesCollection.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 0),
+            hotSalesCollection.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            hotSalesCollection.heightAnchor.constraint(equalToConstant: 170)
+        ])
+        
+        NSLayoutConstraint.activate([
+            labelBestSeller.topAnchor.constraint(equalTo: hotSalesCollection.bottomAnchor, constant: 20),
+            labelBestSeller.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 15)
+        ])
+        
+        NSLayoutConstraint.activate([
+            seeMore2Button.centerYAnchor.constraint(equalTo: labelBestSeller.centerYAnchor, constant: 1.5),
+            seeMore2Button.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor, constant: -25)
+        ])
+        
+        NSLayoutConstraint.activate([
+            bestSellerCollection.topAnchor.constraint(equalTo: labelBestSeller.bottomAnchor, constant: 12),
+            bestSellerCollection.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 0),
+            bestSellerCollection.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            bestSellerCollection.heightAnchor.constraint(equalToConstant: 500)
         ])
     }
 }
 
-// MARK: - UICollectionViewDataSource
-extension MainViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        7
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: idCategoryCell, for: indexPath) as? CategoryCollectionCell else {
-            return UICollectionViewCell()
-        }
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("TapCell")
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: categoryCollection.frame.width / 4, height: categoryCollection.frame.height)
+// MARK: UITextFieldDelegate
+extension MainViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchTextField.resignFirstResponder()
     }
 }
 

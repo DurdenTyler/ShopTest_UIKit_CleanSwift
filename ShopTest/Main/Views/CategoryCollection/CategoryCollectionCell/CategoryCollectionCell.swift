@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CategoryCollectionCell: UICollectionViewCell{
+class CategoryCollectionCell: UICollectionViewCell {
     
     private let circle: UIView = {
         let circle = UIView()
@@ -56,8 +56,8 @@ extension CategoryCollectionCell {
     private func setContraints() {
         NSLayoutConstraint.activate([
             circle.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
-            circle.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 5),
-            circle.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -5),
+            circle.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
+            circle.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
             circle.heightAnchor.constraint(equalToConstant: 80)
         ])
         
@@ -67,7 +67,7 @@ extension CategoryCollectionCell {
         ])
         
         NSLayoutConstraint.activate([
-            labelNameCategory.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            labelNameCategory.centerXAnchor.constraint(equalTo: circle.centerXAnchor),
             labelNameCategory.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5)
         ])
     }
