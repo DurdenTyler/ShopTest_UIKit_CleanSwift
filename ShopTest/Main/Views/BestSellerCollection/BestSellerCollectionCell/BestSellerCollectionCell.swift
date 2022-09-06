@@ -8,13 +8,13 @@
 import UIKit
 
 
-// Кастить ячейку
+// посмотреть бэкграунд тапбара и ширину у скролвью
 class BestSellerCollectionCell: UICollectionViewCell {
     
     private let square: UIView = {
         let square = UIView()
         square.translatesAutoresizingMaskIntoConstraints = false
-        square.backgroundColor = .yellow
+        square.backgroundColor = .white
         square.layer.cornerRadius = 5
         return square
     }()
@@ -25,57 +25,59 @@ class BestSellerCollectionCell: UICollectionViewCell {
         image.image = UIImage(named: "samsungs20ultra")
         image.layer.cornerRadius = 10
         image.clipsToBounds = true
-        image.contentMode = .scaleAspectFit
+        image.contentMode = .scaleAspectFill
         return image
     }()
-//
-//    private let isNew: UIView = {
-//        let circle = UIView()
-//        circle.translatesAutoresizingMaskIntoConstraints = false
-//        circle.backgroundColor = UIColor(named: "specialOrange")
-//        circle.layer.cornerRadius = 15
-//        ///
-//        let labelNew = UILabel()
-//        labelNew.translatesAutoresizingMaskIntoConstraints = false
-//        labelNew.text = "New"
-//        labelNew.font = UIFont.systemFont(ofSize: 9, weight: .medium)
-//        labelNew.textColor = .white
-//        circle.addSubview(labelNew)
-//        labelNew.centerXAnchor.constraint(equalTo: circle.centerXAnchor).isActive = true
-//        labelNew.centerYAnchor.constraint(equalTo: circle.centerYAnchor).isActive = true
-//        ///
-//        return circle
-//    }()
-//
-//    private let topLabel: UILabel = {
-//        let label = UILabel()
-//        label.translatesAutoresizingMaskIntoConstraints = false
-//        label.text = "Iphone 12"
-//        label.textColor = .white
-//        label.font = UIFont.systemFont(ofSize: 22, weight: .medium)
-//        return label
-//    }()
-//
-//    private let secondLabel: UILabel = {
-//        let label = UILabel()
-//        label.translatesAutoresizingMaskIntoConstraints = false
-//        label.text = "Blast past fast"
-//        label.textColor = .white
-//        label.font = UIFont.systemFont(ofSize: 9, weight: .light)
-//        return label
-//    }()
-//
-//    private let buyNowButton: UIButton = {
-//        let button = UIButton(type: .system)
-//        button.translatesAutoresizingMaskIntoConstraints = false
-//        button.backgroundColor = .white
-//        button.setTitle("Buy now!", for: .normal)
-//        button.tintColor = .black
-//        button.titleLabel?.font = UIFont.systemFont(ofSize: 9, weight: .bold)
-//        button.addTarget(self, action: #selector(buyNowButtonFunc), for: .touchUpInside)
-//        button.layer.cornerRadius = 5
-//        return button
-//    }()
+
+    private let addToFavorite: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = .white
+        button.layer.cornerRadius = 16
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOpacity = 0.5
+        button.layer.shadowRadius = 1.5
+        button.layer.shadowOffset = .zero
+        button.setImage(UIImage(systemName: "heart"), for: .normal)
+        button.tintColor = UIColor(named: "specialOrange")
+        button.addTarget(self, action: #selector(addToFavoriteFunc), for: .touchUpInside)
+        return button
+    }()
+
+    private let newPrice: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "$1,047"
+        label.textColor = .black
+        label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        return label
+    }()
+
+    private let oldPrice: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "$1,500"
+        label.textColor = .lightGray
+        label.font = UIFont.systemFont(ofSize: 13, weight: .semibold)
+        return label
+    }()
+    
+    private let line: UIView = {
+        let line = UIView()
+        line.translatesAutoresizingMaskIntoConstraints = false
+        line.backgroundColor = .lightGray
+        return line
+    }()
+    
+    private let title: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Samsung Galaxy S20 Ultra"
+        label.textColor = .black
+        label.font = UIFont.systemFont(ofSize: 10, weight: .light)
+        return label
+    }()
+
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -90,10 +92,15 @@ class BestSellerCollectionCell: UICollectionViewCell {
     private func setupViews() {
         self.addSubview(square)
         self.addSubview(topImage)
+        self.addSubview(addToFavorite)
+        self.addSubview(newPrice)
+        self.addSubview(oldPrice)
+        self.addSubview(line)
+        self.addSubview(title)
 
     }
     
-    @objc private func buyNowButtonFunc() {
+    @objc private func addToFavoriteFunc() {
         ///
     }
     
@@ -102,17 +109,46 @@ class BestSellerCollectionCell: UICollectionViewCell {
 extension BestSellerCollectionCell {
     private func setContraints() {
         NSLayoutConstraint.activate([
-            square.topAnchor.constraint(equalTo: self.topAnchor, constant: 5),
+            square.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
             square.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
             square.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15),
-            square.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 5)
+            square.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0)
         ])
         
         NSLayoutConstraint.activate([
             topImage.topAnchor.constraint(equalTo: square.topAnchor, constant: 0),
             topImage.leadingAnchor.constraint(equalTo: square.leadingAnchor),
             topImage.trailingAnchor.constraint(equalTo: square.trailingAnchor),
-            topImage.bottomAnchor.constraint(equalTo: square.bottomAnchor, constant: -55)
+            topImage.bottomAnchor.constraint(equalTo: square.bottomAnchor, constant: -45)
+        ])
+        
+        NSLayoutConstraint.activate([
+            addToFavorite.topAnchor.constraint(equalTo: topImage.topAnchor, constant: 13),
+            addToFavorite.trailingAnchor.constraint(equalTo: topImage.trailingAnchor, constant: -13),
+            addToFavorite.heightAnchor.constraint(equalToConstant: 32),
+            addToFavorite.widthAnchor.constraint(equalToConstant: 32)
+        ])
+        
+        NSLayoutConstraint.activate([
+            newPrice.topAnchor.constraint(equalTo: topImage.bottomAnchor, constant: 0),
+            newPrice.leadingAnchor.constraint(equalTo: square.leadingAnchor, constant: 15)
+        ])
+        
+        NSLayoutConstraint.activate([
+            oldPrice.bottomAnchor.constraint(equalTo: newPrice.bottomAnchor, constant: -2),
+            oldPrice.leadingAnchor.constraint(equalTo: newPrice.trailingAnchor, constant: 5)
+        ])
+        
+        NSLayoutConstraint.activate([
+            line.heightAnchor.constraint(equalToConstant: 1),
+            line.widthAnchor.constraint(equalToConstant: 40),
+            line.centerYAnchor.constraint(equalTo: oldPrice.centerYAnchor),
+            line.centerXAnchor.constraint(equalTo: oldPrice.centerXAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            title.topAnchor.constraint(equalTo: newPrice.bottomAnchor, constant: 3),
+            title.leadingAnchor.constraint(equalTo: square.leadingAnchor, constant: 15)
         ])
     }
 }

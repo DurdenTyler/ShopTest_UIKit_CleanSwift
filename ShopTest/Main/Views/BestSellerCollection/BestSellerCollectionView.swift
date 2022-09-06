@@ -19,7 +19,7 @@ class BestSellerCollectionView: UIView {
         collection.translatesAutoresizingMaskIntoConstraints = false
         collection.bounces = false
         collection.showsHorizontalScrollIndicator = false
-        collection.backgroundColor = .red
+        collection.backgroundColor = .none
         return collection
     }()
     

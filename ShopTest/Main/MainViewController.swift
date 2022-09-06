@@ -41,7 +41,7 @@ class MainViewController: UIViewController, MainDisplayLogic {
     }()
     
     private var contentSize: CGSize {
-        CGSize(width: view.frame.width, height: view.frame.height + 400)
+        CGSize(width: view.frame.width, height: view.frame.height + 250)
     }
     
     private lazy var contentView: UIView = {
@@ -345,7 +345,7 @@ extension MainViewController {
             bestSellerCollection.topAnchor.constraint(equalTo: labelBestSeller.bottomAnchor, constant: 12),
             bestSellerCollection.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 0),
             bestSellerCollection.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            bestSellerCollection.heightAnchor.constraint(equalToConstant: 500)
+            bestSellerCollection.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -30)
         ])
     }
 }
