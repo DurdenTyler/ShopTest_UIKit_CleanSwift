@@ -12,7 +12,7 @@ class BestSellerCollectionView: UIView {
     private let bestSellerCollection: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.minimumLineSpacing = 20
+        layout.minimumLineSpacing = 25
         layout.minimumInteritemSpacing = 0
         ///
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -65,7 +65,7 @@ extension BestSellerCollectionView {
 // MARK: - UICollectionViewDataSource
 extension BestSellerCollectionView: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        5
+        12
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -80,7 +80,7 @@ extension BestSellerCollectionView: UICollectionViewDataSource, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: bestSellerCollection.frame.width / 2, height: bestSellerCollection.frame.height / 2.15)
+        CGSize(width: bestSellerCollection.frame.width / 2, height: bestSellerCollection.frame.height / 3)
     }
 }
 

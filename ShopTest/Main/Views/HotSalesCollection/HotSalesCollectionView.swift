@@ -13,12 +13,14 @@ class HotSalesCollectionView: UIView {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 3
         ///
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.translatesAutoresizingMaskIntoConstraints = false
         collection.bounces = false
         collection.showsHorizontalScrollIndicator = false
         collection.backgroundColor = .none
+        collection.isPagingEnabled = true
         return collection
     }()
     
@@ -79,6 +81,6 @@ extension HotSalesCollectionView: UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: hotSalesCollection.frame.width / 1.35, height: hotSalesCollection.frame.height)
+        CGSize(width: hotSalesCollection.frame.width, height: hotSalesCollection.frame.height)
     }
 }

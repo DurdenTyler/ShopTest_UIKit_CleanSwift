@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol ProductDetailsDisplayLogic: class {
+protocol ProductDetailsDisplayLogic: AnyObject {
     func displayData(viewModel: ProductDetails.Model.ViewModel.ViewModelData)
 }
 

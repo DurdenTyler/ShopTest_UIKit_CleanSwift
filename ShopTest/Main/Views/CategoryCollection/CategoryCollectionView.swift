@@ -9,7 +9,7 @@ import UIKit
 
 class CategoryCollectionView: UIView {
     
-    private let categoryCollection: UICollectionView = {
+    private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         ///
@@ -38,13 +38,13 @@ class CategoryCollectionView: UIView {
     
     private func setupViews() {
         self.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(categoryCollection)
-        categoryCollection.register(CategoryCollectionCell.self, forCellWithReuseIdentifier: idCategoryCell)
+        self.addSubview(collectionView)
+        collectionView.register(CategoryCollectionCell.self, forCellWithReuseIdentifier: idCategoryCell)
     }
     
     private func setDelegates() {
-        categoryCollection.delegate = self
-        categoryCollection.dataSource = self
+        collectionView.delegate = self
+        collectionView.dataSource = self
     }
 }
 
@@ -52,10 +52,10 @@ class CategoryCollectionView: UIView {
 extension CategoryCollectionView {
     private func setContraints() {
         NSLayoutConstraint.activate([
-            categoryCollection.topAnchor.constraint(equalTo: self.topAnchor),
-            categoryCollection.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            categoryCollection.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            categoryCollection.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            collectionView.topAnchor.constraint(equalTo: self.topAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
    }
 }
@@ -74,10 +74,10 @@ extension CategoryCollectionView: UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("TCategoryCell was tapped")
+        print("cell was tapped!!!")
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: categoryCollection.frame.width / 4.05, height: categoryCollection.frame.height)
+        CGSize(width: collectionView.frame.width / 4.05, height: collectionView.frame.height)
     }
 }

@@ -12,7 +12,7 @@ class CategoryCollectionCell: UICollectionViewCell {
     private let circle: UIView = {
         let circle = UIView()
         circle.translatesAutoresizingMaskIntoConstraints = false
-        circle.backgroundColor = UIColor(named: "specialOrange")
+        circle.backgroundColor = .white
         circle.layer.cornerRadius = 40
         return circle
     }()
@@ -20,7 +20,7 @@ class CategoryCollectionCell: UICollectionViewCell {
     private let categoryImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage(named: "Phone")
+        image.image = UIImage(named: "Phone")?.withTintColor(.lightGray)
         image.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
         return image
     }()
@@ -30,9 +30,24 @@ class CategoryCollectionCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Phones"
         label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
-        label.textColor = UIColor(named: "specialOrange")
+        label.textColor = .black
         return label
     }()
+    
+    override var isSelected: Bool {
+        didSet {
+            if self.isSelected {
+                self.circle.backgroundColor = UIColor(named: "specialOrange")
+                self.categoryImage.image = UIImage(named: "Phone")?.withTintColor(.white)
+                self.labelNameCategory.textColor = UIColor(named: "specialOrange")
+
+            } else {
+                self.circle.backgroundColor = .white
+                self.categoryImage.image = UIImage(named: "Phone")?.withTintColor(.lightGray)
+                self.labelNameCategory.textColor = .black
+            }
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)

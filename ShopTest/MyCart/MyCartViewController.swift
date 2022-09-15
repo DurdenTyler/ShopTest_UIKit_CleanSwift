@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol MyCartDisplayLogic: class {
+protocol MyCartDisplayLogic: AnyObject {
     func displayData(viewModel: MyCart.Model.ViewModel.ViewModelData)
 }
 

@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol MainProtocol: AnyObject {
+    func clickOnFilter()
+}
+
 protocol MainDisplayLogic: AnyObject {
     func displayData(viewModel: Main.Model.ViewModel.ViewModelData)
 }
@@ -16,6 +20,8 @@ class MainViewController: UIViewController, MainDisplayLogic {
     
     var interactor: MainBusinessLogic?
     var router: (NSObjectProtocol & MainRoutingLogic)?
+    
+    weak var mainDelegate: MainProtocol?
     
     // MARK: Object lifecycle
     
@@ -41,7 +47,7 @@ class MainViewController: UIViewController, MainDisplayLogic {
     }()
     
     private var contentSize: CGSize {
-        CGSize(width: view.frame.width, height: view.frame.height + 250)
+        CGSize(width: view.frame.width, height: view.frame.height + 470)
     }
     
     private lazy var contentView: UIView = {
@@ -185,7 +191,6 @@ class MainViewController: UIViewController, MainDisplayLogic {
         setupViews()
         setDelegates()
         setContraints()
-        addTaps()
     }
     
     override func viewDidLayoutSubviews() {
@@ -221,23 +226,6 @@ class MainViewController: UIViewController, MainDisplayLogic {
         searchTextField.delegate = self
     }
     
-    private func addTaps() {
-        let tapScreen = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
-        view.addGestureRecognizer(tapScreen)
-        
-        let swipeScreen = UISwipeGestureRecognizer(target: self, action: #selector(swipeHideKeyboard))
-        swipeScreen.cancelsTouchesInView = false
-        view.addGestureRecognizer(swipeScreen)
-    }
-    
-    @objc private func hideKeyboard() {
-        view.endEditing(true)
-    }
-    
-    @objc private func swipeHideKeyboard() {
-        view.endEditing(true)
-    }
-    
     // MARK: Buttons func on this screen
     
     @objc private func geoButtonFunc() {
@@ -245,7 +233,8 @@ class MainViewController: UIViewController, MainDisplayLogic {
     }
     
     @objc private func filtersButtonFunc() {
-        print("filtersButton was tapped")
+        mainDelegate?.clickOnFilter()
+        print("filter was tapped")
     }
     
     @objc private func viewAllButtonFunc() {
@@ -284,7 +273,7 @@ extension MainViewController {
         ])
         
         NSLayoutConstraint.activate([
-            labelSelCat.topAnchor.constraint(equalTo: geoButton.bottomAnchor, constant: 10),
+            labelSelCat.topAnchor.constraint(equalTo: geoButton.bottomAnchor, constant: 5),
             labelSelCat.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 15)
         ])
         
@@ -325,10 +314,10 @@ extension MainViewController {
         ])
         
         NSLayoutConstraint.activate([
-            hotSalesCollection.topAnchor.constraint(equalTo: labelHotSal.bottomAnchor, constant: 12),
+            hotSalesCollection.topAnchor.constraint(equalTo: labelHotSal.bottomAnchor, constant: 2),
             hotSalesCollection.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 0),
             hotSalesCollection.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            hotSalesCollection.heightAnchor.constraint(equalToConstant: 170)
+            hotSalesCollection.heightAnchor.constraint(equalToConstant: 220)
         ])
         
         NSLayoutConstraint.activate([
@@ -356,4 +345,3 @@ extension MainViewController: UITextFieldDelegate {
         searchTextField.resignFirstResponder()
     }
 }
-

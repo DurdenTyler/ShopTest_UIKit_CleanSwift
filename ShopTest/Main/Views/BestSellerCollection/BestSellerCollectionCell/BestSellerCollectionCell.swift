@@ -7,15 +7,13 @@
 
 import UIKit
 
-
-// посмотреть бэкграунд тапбара и ширину у скролвью
 class BestSellerCollectionCell: UICollectionViewCell {
     
     private let square: UIView = {
         let square = UIView()
         square.translatesAutoresizingMaskIntoConstraints = false
         square.backgroundColor = .white
-        square.layer.cornerRadius = 5
+        square.layer.cornerRadius = 10
         return square
     }()
     
@@ -147,8 +145,9 @@ extension BestSellerCollectionCell {
         ])
         
         NSLayoutConstraint.activate([
-            title.topAnchor.constraint(equalTo: newPrice.bottomAnchor, constant: 3),
-            title.leadingAnchor.constraint(equalTo: square.leadingAnchor, constant: 15)
+            title.topAnchor.constraint(equalTo: newPrice.bottomAnchor, constant: 6),
+            title.leadingAnchor.constraint(equalTo: square.leadingAnchor, constant: 15),
+            title.bottomAnchor.constraint(equalTo: square.bottomAnchor, constant: -10)
         ])
     }
 }

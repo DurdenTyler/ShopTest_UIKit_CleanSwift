@@ -30,6 +30,16 @@
 		DD1819B028BFAF9B00061212 /* MyCartModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1819A928BFAF9B00061212 /* MyCartModels.swift */; };
 		DD1819B128BFAF9B00061212 /* MyCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1819AA28BFAF9B00061212 /* MyCartViewController.swift */; };
 		DD1819B228BFAF9B00061212 /* MyCartInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1819AB28BFAF9B00061212 /* MyCartInteractor.swift */; };
+		DD75705E28CB8A2C00F60578 /* FilterOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD75705D28CB8A2C00F60578 /* FilterOptionsView.swift */; };
+		DD75706128CEE5CE00F60578 /* PopOverTablePhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD75706028CEE5CE00F60578 /* PopOverTablePhone.swift */; };
+		DD75706528CEE61600F60578 /* PopOverTablePhoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD75706428CEE61600F60578 /* PopOverTablePhoneCell.swift */; };
+		DD75706728CEE6B000F60578 /* PopOverPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD75706628CEE6B000F60578 /* PopOverPhoneViewController.swift */; };
+		DD75706B28D1AEF400F60578 /* PopOverTablePriceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD75706A28D1AEF400F60578 /* PopOverTablePriceCell.swift */; };
+		DD75706D28D1AF2A00F60578 /* PopOverTablePrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD75706C28D1AF2A00F60578 /* PopOverTablePrice.swift */; };
+		DD75707028D1AFBF00F60578 /* PopOverPriceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD75706F28D1AFBF00F60578 /* PopOverPriceViewController.swift */; };
+		DD75707328D1B39600F60578 /* PopOverTableSizeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD75707228D1B39600F60578 /* PopOverTableSizeCell.swift */; };
+		DD75707528D1B3E200F60578 /* PopOverTableSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD75707428D1B3E200F60578 /* PopOverTableSize.swift */; };
+		DD75707828D1B47100F60578 /* PopOverSizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD75707728D1B47100F60578 /* PopOverSizeViewController.swift */; };
 		DD98BF2028C04E0A00E29042 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD98BF1F28C04E0A00E29042 /* MainTabBarController.swift */; };
 		DD98BF2628C05DAB00E29042 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD98BF2528C05DAB00E29042 /* CategoriesViewController.swift */; };
 		DD98BF2828C05FEB00E29042 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD98BF2728C05FEB00E29042 /* ProfileViewController.swift */; };
@@ -69,6 +79,16 @@
 		DD1819A928BFAF9B00061212 /* MyCartModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCartModels.swift; sourceTree = "<group>"; };
 		DD1819AA28BFAF9B00061212 /* MyCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCartViewController.swift; sourceTree = "<group>"; };
 		DD1819AB28BFAF9B00061212 /* MyCartInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCartInteractor.swift; sourceTree = "<group>"; };
+		DD75705D28CB8A2C00F60578 /* FilterOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterOptionsView.swift; sourceTree = "<group>"; };
+		DD75706028CEE5CE00F60578 /* PopOverTablePhone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOverTablePhone.swift; sourceTree = "<group>"; };
+		DD75706428CEE61600F60578 /* PopOverTablePhoneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOverTablePhoneCell.swift; sourceTree = "<group>"; };
+		DD75706628CEE6B000F60578 /* PopOverPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOverPhoneViewController.swift; sourceTree = "<group>"; };
+		DD75706A28D1AEF400F60578 /* PopOverTablePriceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOverTablePriceCell.swift; sourceTree = "<group>"; };
+		DD75706C28D1AF2A00F60578 /* PopOverTablePrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOverTablePrice.swift; sourceTree = "<group>"; };
+		DD75706F28D1AFBF00F60578 /* PopOverPriceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOverPriceViewController.swift; sourceTree = "<group>"; };
+		DD75707228D1B39600F60578 /* PopOverTableSizeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOverTableSizeCell.swift; sourceTree = "<group>"; };
+		DD75707428D1B3E200F60578 /* PopOverTableSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOverTableSize.swift; sourceTree = "<group>"; };
+		DD75707728D1B47100F60578 /* PopOverSizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOverSizeViewController.swift; sourceTree = "<group>"; };
 		DD98BF1F28C04E0A00E29042 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		DD98BF2528C05DAB00E29042 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		DD98BF2728C05FEB00E29042 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -187,6 +207,71 @@
 			path = MyCart;
 			sourceTree = "<group>";
 		};
+		DD75705F28CEE58600F60578 /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				DD75706228CEE5DC00F60578 /* PopOverTablePhone */,
+				DD75706828D1AE0E00F60578 /* PopOverTablePrice */,
+				DD75707128D1B36B00F60578 /* PopOverTableSize */,
+				DD75705D28CB8A2C00F60578 /* FilterOptionsView.swift */,
+			);
+			path = Filters;
+			sourceTree = "<group>";
+		};
+		DD75706228CEE5DC00F60578 /* PopOverTablePhone */ = {
+			isa = PBXGroup;
+			children = (
+				DD75706328CEE5F700F60578 /* PopOverTablePhoneCell */,
+				DD75706028CEE5CE00F60578 /* PopOverTablePhone.swift */,
+				DD75706628CEE6B000F60578 /* PopOverPhoneViewController.swift */,
+			);
+			path = PopOverTablePhone;
+			sourceTree = "<group>";
+		};
+		DD75706328CEE5F700F60578 /* PopOverTablePhoneCell */ = {
+			isa = PBXGroup;
+			children = (
+				DD75706428CEE61600F60578 /* PopOverTablePhoneCell.swift */,
+			);
+			path = PopOverTablePhoneCell;
+			sourceTree = "<group>";
+		};
+		DD75706828D1AE0E00F60578 /* PopOverTablePrice */ = {
+			isa = PBXGroup;
+			children = (
+				DD75706928D1AE3900F60578 /* PopOverTablePriceCell */,
+				DD75706C28D1AF2A00F60578 /* PopOverTablePrice.swift */,
+				DD75706F28D1AFBF00F60578 /* PopOverPriceViewController.swift */,
+			);
+			path = PopOverTablePrice;
+			sourceTree = "<group>";
+		};
+		DD75706928D1AE3900F60578 /* PopOverTablePriceCell */ = {
+			isa = PBXGroup;
+			children = (
+				DD75706A28D1AEF400F60578 /* PopOverTablePriceCell.swift */,
+			);
+			path = PopOverTablePriceCell;
+			sourceTree = "<group>";
+		};
+		DD75707128D1B36B00F60578 /* PopOverTableSize */ = {
+			isa = PBXGroup;
+			children = (
+				DD75707628D1B3FE00F60578 /* PopOverTableSizeCell */,
+				DD75707428D1B3E200F60578 /* PopOverTableSize.swift */,
+				DD75707728D1B47100F60578 /* PopOverSizeViewController.swift */,
+			);
+			path = PopOverTableSize;
+			sourceTree = "<group>";
+		};
+		DD75707628D1B3FE00F60578 /* PopOverTableSizeCell */ = {
+			isa = PBXGroup;
+			children = (
+				DD75707228D1B39600F60578 /* PopOverTableSizeCell.swift */,
+			);
+			path = PopOverTableSizeCell;
+			sourceTree = "<group>";
+		};
 		DD98BF2128C0522800E29042 /* MainTabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -218,6 +303,7 @@
 				DD98BF3028C48B0A00E29042 /* CategoryCollection */,
 				DD98BF3328C494AF00E29042 /* HotSalesCollection */,
 				DD98BF3928C4C6B100E29042 /* BestSellerCollection */,
+				DD75705F28CEE58600F60578 /* Filters */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -394,9 +480,13 @@
 				DD1819AF28BFAF9B00061212 /* MyCartRouter.swift in Sources */,
 				DD18197628BFAA3100061212 /* SceneDelegate.swift in Sources */,
 				DD1819A328BFAF0100061212 /* ProductDetailsInteractor.swift in Sources */,
+				DD75707528D1B3E200F60578 /* PopOverTableSize.swift in Sources */,
 				DD98BF2828C05FEB00E29042 /* ProfileViewController.swift in Sources */,
+				DD75706128CEE5CE00F60578 /* PopOverTablePhone.swift in Sources */,
 				DD18199028BFAD7200061212 /* MainWorker.swift in Sources */,
 				DD18198F28BFAD7200061212 /* MainPresenter.swift in Sources */,
+				DD75707328D1B39600F60578 /* PopOverTableSizeCell.swift in Sources */,
+				DD75706B28D1AEF400F60578 /* PopOverTablePriceCell.swift in Sources */,
 				DD98BF2C28C0851700E29042 /* GeoButton.swift in Sources */,
 				DD18199428BFAD7200061212 /* MainInteractor.swift in Sources */,
 				DD1819AD28BFAF9B00061212 /* MyCartPresenter.swift in Sources */,
@@ -405,18 +495,24 @@
 				DD1819B028BFAF9B00061212 /* MyCartModels.swift in Sources */,
 				DD98BF3628C494EC00E29042 /* HotSalesCollectionView.swift in Sources */,
 				DD1819B228BFAF9B00061212 /* MyCartInteractor.swift in Sources */,
+				DD75706528CEE61600F60578 /* PopOverTablePhoneCell.swift in Sources */,
 				DD18199228BFAD7200061212 /* MainModels.swift in Sources */,
 				DD98BF3828C4985F00E29042 /* HotSalesCollectionCell.swift in Sources */,
+				DD75705E28CB8A2C00F60578 /* FilterOptionsView.swift in Sources */,
 				DD98BF3E28C4C72400E29042 /* BestSellerCollectionCell.swift in Sources */,
 				DD18199E28BFAF0100061212 /* ProductDetailsPresenter.swift in Sources */,
 				DD1819A128BFAF0100061212 /* ProductDetailsModels.swift in Sources */,
+				DD75706728CEE6B000F60578 /* PopOverPhoneViewController.swift in Sources */,
+				DD75706D28D1AF2A00F60578 /* PopOverTablePrice.swift in Sources */,
 				DD98BF3228C48B3B00E29042 /* CategoryCollectionView.swift in Sources */,
+				DD75707028D1AFBF00F60578 /* PopOverPriceViewController.swift in Sources */,
 				DD98BF2028C04E0A00E29042 /* MainTabBarController.swift in Sources */,
 				DD98BF2F28C0D22300E29042 /* CategoryCollectionCell.swift in Sources */,
 				DD1819A028BFAF0100061212 /* ProductDetailsRouter.swift in Sources */,
 				DD18199128BFAD7200061212 /* MainRouter.swift in Sources */,
 				DD18199328BFAD7200061212 /* MainViewController.swift in Sources */,
 				DD98BF2628C05DAB00E29042 /* CategoriesViewController.swift in Sources */,
+				DD75707828D1B47100F60578 /* PopOverSizeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

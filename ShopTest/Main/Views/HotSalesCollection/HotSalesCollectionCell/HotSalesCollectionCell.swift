@@ -48,7 +48,7 @@ class HotSalesCollectionCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Iphone 12"
         label.textColor = .white
-        label.font = UIFont.systemFont(ofSize: 22, weight: .medium)
+        label.font = UIFont.systemFont(ofSize: 28, weight: .semibold)
         return label
     }()
     
@@ -57,7 +57,7 @@ class HotSalesCollectionCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Blast past fast"
         label.textColor = .white
-        label.font = UIFont.systemFont(ofSize: 9, weight: .light)
+        label.font = UIFont.systemFont(ofSize: 13, weight: .light)
         return label
     }()
     
@@ -67,7 +67,7 @@ class HotSalesCollectionCell: UICollectionViewCell {
         button.backgroundColor = .white
         button.setTitle("Buy now!", for: .normal)
         button.tintColor = .black
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 9, weight: .bold)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 13, weight: .bold)
         button.addTarget(self, action: #selector(buyNowButtonFunc), for: .touchUpInside)
         button.layer.cornerRadius = 5
         return button
@@ -110,7 +110,7 @@ extension HotSalesCollectionCell {
         NSLayoutConstraint.activate([
             topImage.topAnchor.constraint(equalTo: square.topAnchor, constant: 5),
             topImage.leadingAnchor.constraint(equalTo: square.leadingAnchor, constant: 15),
-            topImage.trailingAnchor.constraint(equalTo: square.trailingAnchor, constant: -2.5),
+            topImage.trailingAnchor.constraint(equalTo: square.trailingAnchor, constant: -15),
             topImage.bottomAnchor.constraint(equalTo: square.bottomAnchor, constant: -5)
         ])
         
@@ -132,10 +132,10 @@ extension HotSalesCollectionCell {
         ])
         
         NSLayoutConstraint.activate([
-            buyNowButton.topAnchor.constraint(equalTo: secondLabel.bottomAnchor, constant: 15),
+            buyNowButton.topAnchor.constraint(equalTo: secondLabel.bottomAnchor, constant: 30),
             buyNowButton.leadingAnchor.constraint(equalTo: topImage.leadingAnchor, constant: 20),
             buyNowButton.heightAnchor.constraint(equalToConstant: 25),
-            buyNowButton.widthAnchor.constraint(equalToConstant: 70)
+            buyNowButton.widthAnchor.constraint(equalToConstant: 130)
         ])
     }
 }
