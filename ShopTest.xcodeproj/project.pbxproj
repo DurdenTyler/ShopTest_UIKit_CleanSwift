@@ -30,6 +30,7 @@
 		DD1819B028BFAF9B00061212 /* MyCartModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1819A928BFAF9B00061212 /* MyCartModels.swift */; };
 		DD1819B128BFAF9B00061212 /* MyCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1819AA28BFAF9B00061212 /* MyCartViewController.swift */; };
 		DD1819B228BFAF9B00061212 /* MyCartInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1819AB28BFAF9B00061212 /* MyCartInteractor.swift */; };
+		DD2CAECC28E45515002FEE01 /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2CAECB28E45515002FEE01 /* CartTableViewCell.swift */; };
 		DD75705E28CB8A2C00F60578 /* FilterOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD75705D28CB8A2C00F60578 /* FilterOptionsView.swift */; };
 		DD75706128CEE5CE00F60578 /* PopOverTablePhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD75706028CEE5CE00F60578 /* PopOverTablePhone.swift */; };
 		DD75706528CEE61600F60578 /* PopOverTablePhoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD75706428CEE61600F60578 /* PopOverTablePhoneCell.swift */; };
@@ -40,6 +41,7 @@
 		DD75707328D1B39600F60578 /* PopOverTableSizeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD75707228D1B39600F60578 /* PopOverTableSizeCell.swift */; };
 		DD75707528D1B3E200F60578 /* PopOverTableSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD75707428D1B3E200F60578 /* PopOverTableSize.swift */; };
 		DD75707828D1B47100F60578 /* PopOverSizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD75707728D1B47100F60578 /* PopOverSizeViewController.swift */; };
+		DD75707E28D440FB00F60578 /* ImageCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD75707D28D440FB00F60578 /* ImageCollectionCell.swift */; };
 		DD98BF2028C04E0A00E29042 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD98BF1F28C04E0A00E29042 /* MainTabBarController.swift */; };
 		DD98BF2628C05DAB00E29042 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD98BF2528C05DAB00E29042 /* CategoriesViewController.swift */; };
 		DD98BF2828C05FEB00E29042 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD98BF2728C05FEB00E29042 /* ProfileViewController.swift */; };
@@ -79,6 +81,7 @@
 		DD1819A928BFAF9B00061212 /* MyCartModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCartModels.swift; sourceTree = "<group>"; };
 		DD1819AA28BFAF9B00061212 /* MyCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCartViewController.swift; sourceTree = "<group>"; };
 		DD1819AB28BFAF9B00061212 /* MyCartInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCartInteractor.swift; sourceTree = "<group>"; };
+		DD2CAECB28E45515002FEE01 /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
 		DD75705D28CB8A2C00F60578 /* FilterOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterOptionsView.swift; sourceTree = "<group>"; };
 		DD75706028CEE5CE00F60578 /* PopOverTablePhone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOverTablePhone.swift; sourceTree = "<group>"; };
 		DD75706428CEE61600F60578 /* PopOverTablePhoneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOverTablePhoneCell.swift; sourceTree = "<group>"; };
@@ -89,6 +92,7 @@
 		DD75707228D1B39600F60578 /* PopOverTableSizeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOverTableSizeCell.swift; sourceTree = "<group>"; };
 		DD75707428D1B3E200F60578 /* PopOverTableSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOverTableSize.swift; sourceTree = "<group>"; };
 		DD75707728D1B47100F60578 /* PopOverSizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOverSizeViewController.swift; sourceTree = "<group>"; };
+		DD75707D28D440FB00F60578 /* ImageCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionCell.swift; sourceTree = "<group>"; };
 		DD98BF1F28C04E0A00E29042 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		DD98BF2528C05DAB00E29042 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		DD98BF2728C05FEB00E29042 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -184,6 +188,7 @@
 		DD18199628BFAEC000061212 /* ProductDetails */ = {
 			isa = PBXGroup;
 			children = (
+				DD75707928D438DA00F60578 /* Views */,
 				DD18199B28BFAF0100061212 /* ProductDetailsViewController.swift */,
 				DD18199C28BFAF0100061212 /* ProductDetailsInteractor.swift */,
 				DD18199728BFAF0100061212 /* ProductDetailsPresenter.swift */,
@@ -197,6 +202,7 @@
 		DD1819A528BFAF6D00061212 /* MyCart */ = {
 			isa = PBXGroup;
 			children = (
+				DD2CAEC928E454B3002FEE01 /* Views */,
 				DD1819AA28BFAF9B00061212 /* MyCartViewController.swift */,
 				DD1819AB28BFAF9B00061212 /* MyCartInteractor.swift */,
 				DD1819A628BFAF9B00061212 /* MyCartPresenter.swift */,
@@ -205,6 +211,22 @@
 				DD1819A828BFAF9B00061212 /* MyCartRouter.swift */,
 			);
 			path = MyCart;
+			sourceTree = "<group>";
+		};
+		DD2CAEC928E454B3002FEE01 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DD2CAECA28E454C1002FEE01 /* CartTableViewCell */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DD2CAECA28E454C1002FEE01 /* CartTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				DD2CAECB28E45515002FEE01 /* CartTableViewCell.swift */,
+			);
+			path = CartTableViewCell;
 			sourceTree = "<group>";
 		};
 		DD75705F28CEE58600F60578 /* Filters */ = {
@@ -270,6 +292,22 @@
 				DD75707228D1B39600F60578 /* PopOverTableSizeCell.swift */,
 			);
 			path = PopOverTableSizeCell;
+			sourceTree = "<group>";
+		};
+		DD75707928D438DA00F60578 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DD75707C28D4393D00F60578 /* ImageCollectionCell */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DD75707C28D4393D00F60578 /* ImageCollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				DD75707D28D440FB00F60578 /* ImageCollectionCell.swift */,
+			);
+			path = ImageCollectionCell;
 			sourceTree = "<group>";
 		};
 		DD98BF2128C0522800E29042 /* MainTabBar */ = {
@@ -492,7 +530,9 @@
 				DD1819AD28BFAF9B00061212 /* MyCartPresenter.swift in Sources */,
 				DD1819A228BFAF0100061212 /* ProductDetailsViewController.swift in Sources */,
 				DD1819B128BFAF9B00061212 /* MyCartViewController.swift in Sources */,
+				DD75707E28D440FB00F60578 /* ImageCollectionCell.swift in Sources */,
 				DD1819B028BFAF9B00061212 /* MyCartModels.swift in Sources */,
+				DD2CAECC28E45515002FEE01 /* CartTableViewCell.swift in Sources */,
 				DD98BF3628C494EC00E29042 /* HotSalesCollectionView.swift in Sources */,
 				DD1819B228BFAF9B00061212 /* MyCartInteractor.swift in Sources */,
 				DD75706528CEE61600F60578 /* PopOverTablePhoneCell.swift in Sources */,

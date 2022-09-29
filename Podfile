@@ -7,5 +7,6 @@ target 'ShopTest' do
 
   # Pods for ShopTest
 pod 'Alamofire'
+pod 'Cosmos'
 
 end

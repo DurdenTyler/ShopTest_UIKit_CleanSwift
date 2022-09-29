@@ -73,7 +73,7 @@ class MainViewController: UIViewController, MainDisplayLogic {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Select Category"
-        label.textColor = .black
+        label.textColor = UIColor(named: "blackBlue")
         label.font = UIFont.systemFont(ofSize: 27, weight: .semibold)
         return label
     }()
@@ -131,7 +131,7 @@ class MainViewController: UIViewController, MainDisplayLogic {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Hot Sales"
-        label.textColor = .black
+        label.textColor = UIColor(named: "blackBlue")
         label.font = UIFont.systemFont(ofSize: 27, weight: .semibold)
         return label
     }()
@@ -152,7 +152,7 @@ class MainViewController: UIViewController, MainDisplayLogic {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Best Seller"
-        label.textColor = .black
+        label.textColor = UIColor(named: "blackBlue")
         label.font = UIFont.systemFont(ofSize: 27, weight: .semibold)
         return label
     }()
