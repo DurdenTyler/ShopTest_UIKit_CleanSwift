@@ -32,9 +32,9 @@ class MainTabBarController: UITabBarController {
     private func tabBar() {
         viewControllers = [
             generateVC(vc: mainVC, image: UIImage(systemName: "house")),
-            generateVC(vc: CategoriesViewController(), image: UIImage(systemName: "rectangle.stack")),
+            generateVC(vc: mainVC, image: UIImage(systemName: "rectangle.stack")),
             generateVC(vc: MyCartViewController(), image: UIImage(systemName: "cart")),
-            generateVC(vc: ProfileViewController(), image: UIImage(systemName: "person"))
+            generateVC(vc: mainVC, image: UIImage(systemName: "person"))
         ]
     }
     

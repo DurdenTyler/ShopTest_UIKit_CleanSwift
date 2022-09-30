@@ -95,6 +95,70 @@ class MyCartViewController: UIViewController, MyCartDisplayLogic {
     
     private let idCartCell = "idCartCell"
     
+    private let whiteSepView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .white
+        view.layer.opacity = 0.3
+        return view
+    }()
+    
+    private let labelTotal: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Total"
+        label.textColor = .white
+        label.font = UIFont.systemFont(ofSize: 19, weight: .light)
+        return label
+    }()
+    
+    private let labelDelivery: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Delivery"
+        label.textColor = .white
+        label.font = UIFont.systemFont(ofSize: 19, weight: .light)
+        return label
+    }()
+    
+    private let labelPrice: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "$6,0000 us"
+        label.textColor = .white
+        label.font = UIFont.systemFont(ofSize: 19, weight: .semibold)
+        return label
+    }()
+    
+    private let labelDeliveryPrice: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Free"
+        label.textColor = .white
+        label.font = UIFont.systemFont(ofSize: 19, weight: .semibold)
+        return label
+    }()
+    
+    private let whiteSepView2: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .white
+        view.layer.opacity = 0.3
+        return view
+    }()
+    
+    private let buttonCheckout: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Checkout", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
+        button.layer.cornerRadius = 11
+        button.backgroundColor = UIColor(named: "specialOrange")
+        button.addTarget(self, action: #selector(buttonCheckoutFunc), for: .touchUpInside)
+        return button
+    }()
+    
     // MARK: Setup
     
     private func setup() {
@@ -131,6 +195,13 @@ class MyCartViewController: UIViewController, MyCartDisplayLogic {
         view.addSubview(blackBlueView)
         view.addSubview(cartTableView)
         cartTableView.register(CartTableViewCell.self, forCellReuseIdentifier: idCartCell)
+        view.addSubview(whiteSepView)
+        view.addSubview(labelTotal)
+        view.addSubview(labelDelivery)
+        view.addSubview(labelPrice)
+        view.addSubview(labelDeliveryPrice)
+        view.addSubview(whiteSepView2)
+        view.addSubview(buttonCheckout)
         
     }
     
@@ -151,6 +222,10 @@ class MyCartViewController: UIViewController, MyCartDisplayLogic {
     
     @objc private func buttonAddressFunc() {
         print("buttonAddress was tapped")
+    }
+    
+    @objc private func buttonCheckoutFunc() {
+        print("buttonCheckout was tapped")
     }
     
 }
@@ -190,10 +265,51 @@ extension MyCartViewController {
         ])
         
         NSLayoutConstraint.activate([
-            cartTableView.topAnchor.constraint(equalTo: blackBlueView.topAnchor, constant: 70),
+            cartTableView.topAnchor.constraint(equalTo: blackBlueView.topAnchor, constant: 10),
             cartTableView.leadingAnchor.constraint(equalTo: blackBlueView.leadingAnchor, constant: 10),
             cartTableView.trailingAnchor.constraint(equalTo: blackBlueView.trailingAnchor, constant: -10),
             cartTableView.heightAnchor.constraint(equalToConstant: 400)
+        ])
+        
+        NSLayoutConstraint.activate([
+            whiteSepView.topAnchor.constraint(equalTo: cartTableView.bottomAnchor, constant: 10),
+            whiteSepView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            whiteSepView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            whiteSepView.heightAnchor.constraint(equalToConstant: 1)
+        ])
+        
+        NSLayoutConstraint.activate([
+            labelTotal.topAnchor.constraint(equalTo: whiteSepView.bottomAnchor, constant: 15),
+            labelTotal.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 45)
+        ])
+        
+        NSLayoutConstraint.activate([
+            labelDelivery.topAnchor.constraint(equalTo: labelTotal.bottomAnchor, constant: 15),
+            labelDelivery.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 45)
+        ])
+        
+        NSLayoutConstraint.activate([
+            labelPrice.centerYAnchor.constraint(equalTo: labelTotal.centerYAnchor, constant: 0),
+            labelPrice.leadingAnchor.constraint(equalTo: labelTotal.trailingAnchor, constant: 160)
+        ])
+        
+        NSLayoutConstraint.activate([
+            labelDeliveryPrice.centerYAnchor.constraint(equalTo: labelDelivery.centerYAnchor, constant: 0),
+            labelDeliveryPrice.leadingAnchor.constraint(equalTo: labelPrice.leadingAnchor, constant: 0)
+        ])
+        
+        NSLayoutConstraint.activate([
+            whiteSepView2.topAnchor.constraint(equalTo: labelDeliveryPrice.bottomAnchor, constant: 15),
+            whiteSepView2.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            whiteSepView2.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            whiteSepView2.heightAnchor.constraint(equalToConstant: 1)
+        ])
+        
+        NSLayoutConstraint.activate([
+            buttonCheckout.topAnchor.constraint(equalTo: whiteSepView2.bottomAnchor, constant: 20),
+            buttonCheckout.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0),
+            buttonCheckout.widthAnchor.constraint(equalToConstant: 290),
+            buttonCheckout.heightAnchor.constraint(equalToConstant: 55)
         ])
     }
 }
